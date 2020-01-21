@@ -1,9 +1,8 @@
+# require './config/environment'
 
-require 'pry'
-require './config/environment'
-require_relative '../lib/user.rb'
+require 'tty-prompt'
 
-def new_account
+# def new_account
     prompt = TTY::Prompt.new
     
     result = prompt.collect do
@@ -14,7 +13,7 @@ def new_account
     end
 
 
-end
+# end
 
-new_account
+# new_account
 

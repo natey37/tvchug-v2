@@ -1,6 +1,6 @@
-require 'tty-prompt'
-require 'rest-client'
-require 'JSON'
+# require 'tty-prompt'
+# require 'rest-client'
+# require 'JSON'
 
 prompt = TTY::Prompt.new
 
