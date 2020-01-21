@@ -1,21 +1,22 @@
 require 'tty-prompt'
 require 'rest-client'
 require 'JSON'
+require_relative './config/environment.rb'
 
 prompt = TTY::Prompt.new
 
-system("clear")
-puts 'WELCOME TO TV CHUG'
-puts 
-prompt.select("Chose an option",  %w(Sign_In New_Account View_as_Guest))
+# system("clear")
+# puts 'WELCOME TO TV CHUG'
+# puts 
+# prompt.select("Chose an option",  %w(Sign_In New_Account View_as_Guest))
 
-popular_shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
+# popular_shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
 
-popular_shows = JSON.parse(popular_shows)
+# popular_shows = JSON.parse(popular_shows)
 
-popular_shows["tv_shows"].each_with_index do |show,index|
-    puts "#{index+1}. #{show["name"]}"
-end
+# popular_shows["tv_shows"].each_with_index do |show,index|
+#     puts "#{index+1}. #{show["name"]}"
+# end
 
 # def search(string)
 #     prompt = TTY::Prompt.new
@@ -41,16 +42,46 @@ end
 
 # picked_show_prompt(user_input)
 
-system("clear")
-user_input = prompt.select("Chose an option",  %w(Sign_In New_Account View_as_Guest))
-system("clear")
-puts "Welcome to TVCHUG"
-prompt.ask("Username: ")
-user_name = gets.chomp
-# if User.find(user_name) == nil
-#     puts "User not found"
+
+
+
+
+
+
+
+
+# --> "sign in"
+# binding.pry
+# def valid_user?(username)
+#   User.all.select{|user| user.user_name == username} != [] ? true : false 
 # end 
-prompt.ask("Password: ")
-user_password = gets.chomp 
+
+# def valid_password?(pass_word)
+#   User.all.select{|user| user.password == pass_word} != [] ? true : false 
+# end 
+
+# system("clear")
+# user_input = prompt.select("Chose an option",  %w(Sign_In New_Account View_as_Guest))
+# system("clear")
+# puts "Welcome to TVCHUG"
+# user_name = prompt.ask("Username: ")
+
+#     if valid_user?(user_name)
+#         pass_word = prompt.ask("Password: ")
+#     else 
+#         puts "User Cannot Be Found!"
+#         #sends you to create user page
+#     end 
+
+#     if valid_password?(pass_word)
+#         #takes you to main homepage
+#     else 
+#         until valid_password?(pass_word)
+#         puts "Password Incorrect! Please re-enter your password."
+#         pass_word = prompt.ask("Password: ")
+#         end 
+
+#     end 
+
 
 
