@@ -37,9 +37,9 @@ def picked_show_prompt(show)
 end
 
 
-user_input = search("rick")
+# user_input = search("rick")
 
-picked_show_prompt(user_input)
+# picked_show_prompt(user_input)
 
 
 
