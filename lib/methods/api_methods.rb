@@ -57,6 +57,18 @@ def show_details(id)
     puts "Trailer: https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}"
     puts "Genres: #{result["tvShow"]["genres"]}"
     puts "# of Episodes: #{result["tvShow"]["episodes"].count}"
+    
+    show_details_hash = {
+        name: "#{result["tvShow"]["name"]}", 
+        start_date: "#{result["tvShow"]["start_date"]}",
+        end_date: "#{result["tvShow"]["end_date"]}",
+        network: "#{result["tvShow"]["network"]}",
+        status: "#{result["tvShow"]["status"]}",
+        permalink: "https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}",
+        episodate_id: id
+
+    }
+
 end
 
 def on_show_menu

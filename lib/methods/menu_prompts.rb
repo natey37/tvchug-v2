@@ -25,8 +25,23 @@ end
 
 def main_menu     
     # puts "Hello, #{user.user_name}"
-    user_input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
-    user_action(user_input)
+    input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
+    if input == "Search Shows"
+        show = search
+        display_results(show)
+    elsif input == "See Top Shows"
+        system("clear")
+        user_choice = popular_shows
+        prompt = ttyprompt("Choose an Option", ["Add show to Favorites", "Go back to Popular Shows"])
+            if prompt == "Add show to Favorites"
+
+               show = Show.create(user_choice)
+               Favorite.create(show_id: "#{show.id}", user_id: "#{self.id}")
+            end 
+            binding.pry
+            #    Favorite.create(show_id: )
+        
+    end
 end
 
 def popular_shows_menu
