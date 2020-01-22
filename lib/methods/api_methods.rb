@@ -11,7 +11,9 @@ def search #prompts a search and searches until it finds atleast one show, retur
         result = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=1")
         result = JSON.parse(result)
     end
-    result
+    result = make_list(result)
+    display_result(result)
+
 end
 
 def make_list(json_results) #takes JSON and lists items, add exit and search again, returns array
@@ -31,11 +33,7 @@ def display_result(arr) #takes array, display and ask for selection, retruns Epi
     prompt = TTY::Prompt.new
     choice = prompt.select("Results", arr)
 
-    if choice == "Search again"
-        return search
-    elsif choice == "Exit"
-        return exit
-    end
+    user_action(choice)
 
     hash_key = choice.split(".")[0].to_i
     hash[hash_key]
@@ -44,8 +42,7 @@ end
 def picked_show_prompt(show)
     system("clear")
     prompt = TTY::Prompt.new
-    options = ["Favorite show", "Find Out More Info", "Exit"]
-    prompt.select(show, options)
+    prompt.select(show, ["Favorite show", "Find Out More Info", "Exit"])
 end
 
 def show_details(id)

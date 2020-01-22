@@ -11,8 +11,11 @@ def new_account
         key(:user_name).ask('User Name?')
         key(:password).mask('Password?')
     end
+    current_user = User.create(result)
     system("clear")
-    user = User.create(result)
+    puts
+    puts "Hello, #{current_user.user_name}"
+    main_menu
 end
 
 

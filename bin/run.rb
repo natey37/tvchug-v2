@@ -1,17 +1,7 @@
 require_relative '../config/environment'
 
-user_input = nil
-user = nil
 
-main_menu 
-#user_input = welcome 
+current_user = nil
+current_show_id = 0
 
-
-if user_input == "Sign In"
-    sign_in
-elsif user_input == "New Account"
-    user = new_account
-    main_menu
-else 
-    #guest_account
-end
+welcome 

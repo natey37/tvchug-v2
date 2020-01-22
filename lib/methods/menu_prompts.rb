@@ -1,9 +1,3 @@
-
-def ttyprompt(text,arr)
-    prompt = TTY::Prompt.new
-    prompt.select(text, arr)
-end
-
 def welcome
     system("clear")
 
@@ -17,8 +11,9 @@ def welcome
     puts "  TTT      VVV        CCCCC  hh   hh  uuuu u      gg "
     puts "                                               ggggg " 
         puts
-        ttyprompt( 'WELCOME TO TV CHUG', ["Sign In", "New Account", "View as Guest"])
-    end
+        user_input = ttyprompt( 'WELCOME TO TV CHUG', ["Sign In", "New Account", "View as Guest"])
+        user_action(user_input)
+end
 
 def popular_shows 
     shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
@@ -30,20 +25,15 @@ end
 
 def main_menu     
     # puts "Hello, #{user.user_name}"
-    input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
-    if input == "Search Shows"
-        show = search
-        display_results(show)
-    elsif input == "See Top Shows"
-        user_choice = popular_shows
-        ttyprompt("Choose an Option", ["Add show to Favorites", "See Show Details", "Go back to Popular Shows"])
-        
-    end
+    user_input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
+    user_action(user_input)
 end
 
-def exit
-    main_menu
+def popular_shows_menu
+    ttyprompt("Choose an Option", ["Add show to Favorites", "See Show Details", "Go back to Popular Shows"])
 end
+
+
 
 
 # puts "Please enter the name of a show!"
