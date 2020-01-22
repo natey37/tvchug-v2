@@ -1,14 +1,16 @@
 require_relative '../config/environment'
 
-system("clear")
-puts 'WELCOME TO TV CHUG'
-puts 
-prompt.select("Chose an option",  %w(Sign_In New_Account View_as_Guest))
+user_input = nil
+user = nil
 
-popular_shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
+user_input = welcome 
 
-popular_shows = JSON.parse(popular_shows)
 
-popular_shows["tv_shows"].each_with_index do |show,index|
-    puts "#{index+1}. #{show["name"]}"
+if user_input == "Sign In"
+    sign_in
+elsif user_input == "New Account"
+    user = new_account
+    main_menu
+else 
+    #guest_account
 end
