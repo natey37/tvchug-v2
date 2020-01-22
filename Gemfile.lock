@@ -17,6 +17,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     equatable (0.6.1)
+    faker (2.10.1)
+      i18n (>= 1.6, < 2)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -81,6 +83,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  faker
   pry
   require_all
   rest-client
