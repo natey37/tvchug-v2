@@ -32,8 +32,12 @@ def main_menu
     # puts "Hello, #{user.user_name}"
     input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
     if input == "Search Shows"
+        puts "Please enter the name of a show!"
         search_show = gets.chomp
         search(search_show)
+    elsif input == "See Top Shows"
+        popular_shows
+        binding.pry
     end
 end
 
