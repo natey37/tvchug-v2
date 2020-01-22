@@ -11,7 +11,7 @@ def user_action(action)
     when "search again"
         return search
     when "Sign In"
-        return sign_in
+        sign_in
     when "New Account"
         return new_account
     when"View as Guest"

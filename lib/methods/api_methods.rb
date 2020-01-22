@@ -83,5 +83,5 @@ def popular_shows
     result = make_list(shows)
     show_id = display_result(result)
     show_details(show_id)
-    user_action = ttyprompt("chose an option", ["add show to Favorite", "Go back to Popular shows"]
+    user_action = ttyprompt("chose an option", ["add show to Favorite", "Go back to Popular shows"])
 end
