@@ -23,7 +23,9 @@ def welcome
 def popular_shows 
     shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
     shows = JSON.parse(shows)
-    display_results(shows)
+    shows["tv_shows"].each_with_index do |show,index|
+        puts "#{index+1}. #{show["name"]}"
+    end
 end
 
 def main_menu     
