@@ -13,6 +13,9 @@ def search #prompts a search and searches until it finds atleast one show, retur
     end
     result = make_list(result)
     display_result(result)
+    action = ttyprompt("chose an option", ["add show to Favorite", "Search Again"])
+
+    user_action(action)
 
 end
 
@@ -81,4 +84,5 @@ def popular_shows
     show_id = display_result(result)
     show_details(show_id)
     user_action = ttyprompt("chose an option", ["add show to Favorite", "Go back to Popular shows"]
+
 end
