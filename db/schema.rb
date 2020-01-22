@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200121195648) do
+ActiveRecord::Schema.define(version: 2020_01_21_195648) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "show_id"
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20200121195648) do
 
   create_table "shows", force: :cascade do |t|
     t.integer "episodate_id"
-    t.string  "name"
-    t.string  "permalink"
-    t.string  "start_date"
-    t.string  "end_date"
-    t.string  "country"
-    t.string  "network"
-    t.string  "status"
-    t.string  "image_thumbnail_path"
+    t.string "name"
+    t.string "permalink"
+    t.string "start_date"
+    t.string "end_date"
+    t.string "country"
+    t.string "network"
+    t.string "status"
+    t.string "image_thumbnail_path"
   end
 
   create_table "users", force: :cascade do |t|
