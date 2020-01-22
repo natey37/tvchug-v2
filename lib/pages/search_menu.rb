@@ -13,7 +13,6 @@ def search #prompts a search and searches until it finds atleast one show, retur
     end
     
     result = make_list(result)
-    display_result(result)
 
 end
 

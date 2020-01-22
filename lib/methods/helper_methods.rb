@@ -17,9 +17,9 @@ def user_action(action)
     when"View as Guest"
         #need stuff here 
     when "View My Fav Shows"
-        #need stuff
+        return myfav
     when "See Top Shows"
-        #need stuff
+        return popular_shows 
     when "Search Shows"
         return search
     when "Favorite this show"
