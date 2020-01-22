@@ -22,8 +22,8 @@ def user_action(action)
         #need stuff
     when "Search Shows"
         return search
-    when "Add show to Favorite" 
-        #create new objects
+    when "Favorite this show"
+        favorite
     when "Find Out More Info"
         return show_details(current_show_id)
     when "Go back to Popular shows"
