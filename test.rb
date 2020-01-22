@@ -1,9 +1,9 @@
-require 'tty-prompt'
-require 'rest-client'
-require 'JSON'
-require_relative './config/environment.rb'
+# require 'tty-prompt'
+# require 'rest-client'
+# require 'JSON'
+# require_relative './config/environment.rb'
 
-prompt = TTY::Prompt.new
+# prompt = TTY::Prompt.new
 
 # system("clear")
 # puts 'WELCOME TO TV CHUG'

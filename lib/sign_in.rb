@@ -6,7 +6,9 @@ def valid_password?(pass_word)
     User.all.select{|user| user.password == pass_word} != [] ? true : false 
 end 
   
+def sign_in
   system("clear")
+  prompt = TTY::Prompt.new
   user_input = prompt.select("Chose an option",  %w(Sign_In New_Account View_as_Guest))
   system("clear")
   puts "Welcome to TVCHUG"
@@ -28,7 +30,8 @@ end
           end 
   
       end 
-  
+end
+
   
   
   

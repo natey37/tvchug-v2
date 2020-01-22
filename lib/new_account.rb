@@ -2,7 +2,7 @@
 
 require 'tty-prompt'
 
-# def new_account
+def new_account
     prompt = TTY::Prompt.new
     
     result = prompt.collect do
@@ -11,9 +11,7 @@ require 'tty-prompt'
         key(:user_name).ask('User Name?')
         key(:password).mask('Password?')
     end
+    user = User.create(result)
+end
 
-
-# end
-
-# new_account
 
