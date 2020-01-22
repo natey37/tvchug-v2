@@ -32,11 +32,14 @@ def main_menu
     # puts "Hello, #{user.user_name}"
     input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
     if input == "Search Shows"
-        search_show = gets.chomp
-        search(search_show)
+        show = search
+        display_results(show)
     end
 end
 
+def exit
+    main_menu
+end
 
 
 
