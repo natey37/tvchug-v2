@@ -1,4 +1,4 @@
-def search
+def search #prompts a search and searches until it finds atleast one show, returns JSON
     prompt = TTY::Prompt.new
     search_keyword = prompt.ask("What would you like to Search?")
 
@@ -14,28 +14,31 @@ def search
     result
 end
 
-   def display_results(json_results) 
-        arr = []
-        hash = {}
+def make_list(json_results) #takes JSON and lists items, add exit and search again, returns array
+    arr = []
+    hash = {}
 
-        json_results["tv_shows"].each_with_index do |show,index|
-            arr << "#{index+1}. #{show["name"]}"
-            hash[index + 1] = show["id"]
-        end
-        arr << "Search again"
-        arr << "Exit"
+    json_results["tv_shows"].each_with_index do |show,index|
+        arr << "#{index+1}. #{show["name"]}"
+        hash[index + 1] = show["id"]
+    end
+    arr << "Search again" 
+    arr << "Exit"
+end
+
+def display_result(arr) #takes array, display and ask for selection, retruns EpisodateID if show selected
 
     prompt = TTY::Prompt.new
     choice = prompt.select("Results", arr)
 
     if choice == "Search again"
-        search
-    elsif choice == "Search again"
-        exit
+        return search
+    elsif choice == "Exit"
+        return exit
     end
 
     hash_key = choice.split(".")[0].to_i
-    show_details(hash[hash_key])
+    hash[hash_key]
 end
 
 def picked_show_prompt(show)

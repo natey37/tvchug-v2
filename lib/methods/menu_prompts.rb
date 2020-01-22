@@ -22,7 +22,7 @@ def welcome
 
 def popular_shows 
     shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
-    shows = JSON.parse(popular_shows)
+    shows = JSON.parse(shows)
     shows["tv_shows"].each_with_index do |show,index|
         puts "#{index+1}. #{show["name"]}"
     end
