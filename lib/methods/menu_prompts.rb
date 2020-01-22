@@ -22,28 +22,35 @@ def welcome
 
 def popular_shows 
     shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
-    shows = JSON.parse(popular_shows)
-    shows["tv_shows"].each_with_index do |show,index|
-        puts "#{index+1}. #{show["name"]}"
-    end
+    shows = JSON.parse(shows)
+    display_results(shows)
 end
 
-def main_menu 
+def main_menu     
     # puts "Hello, #{user.user_name}"
     input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
     if input == "Search Shows"
-        puts "Please enter the name of a show!"
-        search_show = gets.chomp
-        search(search_show)
+        show = search
+        display_results(show)
     elsif input == "See Top Shows"
-        popular_shows
-        binding.pry
+        user_choice = popular_shows
+        ttyprompt("Choose an Option", ["Add show to Favorites", "See Show Details", "Go back to Popular Shows"])
+        
     end
 end
 
+def exit
+    main_menu
+end
 
 
-
+# puts "Please enter the name of a show!"
+# search_show = gets.chomp
+# search(search_show)
+# elsif input == "See Top Shows"
+# popular_shows
+# binding.pry
+# end
 
 
 

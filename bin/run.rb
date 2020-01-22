@@ -3,8 +3,8 @@ require_relative '../config/environment'
 user_input = nil
 user = nil
 
-# main_menu
-user_input = welcome 
+main_menu 
+#user_input = welcome 
 
 
 if user_input == "Sign In"
