@@ -49,6 +49,7 @@ end
 # end
 
 def show_details(id)
+    # $current_show_id = id 
     result = RestClient.get("https://www.episodate.com/api/show-details?q=#{id}")
     result = JSON.parse(result)
     puts "Name: #{result["tvShow"]["name"]}"
@@ -60,7 +61,11 @@ def show_details(id)
     puts "Trailer: https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}"
     puts "Genres: #{result["tvShow"]["genres"]}"
     puts "# of Episodes: #{result["tvShow"]["episodes"].count}"
-    
+end
+
+def show_details_hash(id)
+    result = RestClient.get("https://www.episodate.com/api/show-details?q=#{id}")
+    result = JSON.parse(result)
     show_details_hash = {
         name: "#{result["tvShow"]["name"]}", 
         start_date: "#{result["tvShow"]["start_date"]}",
@@ -69,10 +74,8 @@ def show_details(id)
         status: "#{result["tvShow"]["status"]}",
         permalink: "https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}",
         episodate_id: id
-
     }
-
-end
+end 
 
 def on_show_menu
 end
@@ -83,6 +86,5 @@ def popular_shows
     result = make_list(shows)
     show_id = display_result(result)
     show_details(show_id)
-    user_action = ttyprompt("chose an option", ["add show to Favorite", "Go back to Popular shows"]
-
+    user_action = ttyprompt("chose an option", ["add show to Favorite", "Go back to Popular shows"])
 end
