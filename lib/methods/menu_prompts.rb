@@ -33,8 +33,16 @@ def main_menu
         show = search
         display_results(show)
     elsif input == "See Top Shows"
+        system("clear")
         user_choice = popular_shows
-        ttyprompt("Choose an Option", ["Add show to Favorites", "See Show Details", "Go back to Popular Shows"])
+        prompt = ttyprompt("Choose an Option", ["Add show to Favorites", "Go back to Popular Shows"])
+            if prompt == "Add show to Favorites"
+
+               show = Show.create(user_choice)
+               Favorite.create(show_id: "#{show.id}", user_id: "#{self.id}")
+            end 
+            binding.pry
+            #    Favorite.create(show_id: )
         
     end
 end
