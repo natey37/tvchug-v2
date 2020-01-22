@@ -11,6 +11,7 @@ def new_account
         key(:user_name).ask('User Name?')
         key(:password).mask('Password?')
     end
+    system("clear")
     user = User.create(result)
 end
 

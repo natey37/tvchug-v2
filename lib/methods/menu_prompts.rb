@@ -30,7 +30,11 @@ end
 
 def main_menu 
     # puts "Hello, #{user.user_name}"
-    ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
+    input = ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows"])
+    if input == "Search Shows"
+        search_show = gets.chomp
+        search(search_show)
+    end
 end
 
 
@@ -39,26 +43,4 @@ end
 
 
 
-# def search(string)
-#     prompt = TTY::Prompt.new
-#     result = RestClient.get("https://www.episodate.com/api/search?q=#{string}&page=1")
-#     result = JSON.parse(result)
-#     arr = []
-#     result["tv_shows"].each_with_index do |show,index|
-#         arr << "#{index+1}. #{show["name"]}"
-#     end
-#     arr << "Exit"
-#     choice = prompt.select("action?", arr)
-# end
 
-# def picked_show_prompt(show)
-#     system("clear")
-#     prompt = TTY::Prompt.new
-#     options = ["Favorite show", "Find Out More Info", "Exit"]
-#     prompt.select(show, options)
-# end
-
-
-# user_input = search("rick")
-
-# picked_show_prompt(user_input)
