@@ -26,8 +26,8 @@ User.create(first_name: Faker::Name.name, last_name: Faker::Name.name, user_name
 #     t.string  "network"
 #     t.string  "status"
 #     t.string  "image_thumbnail_path"
-show1 = Show.create(episodate_id: Faker::Number.number(4), name: Faker::FunnyName.name)
-Favorite.new(show_id: "#{show1}", user_id "#{user1}", rating: )
+show1 = Show.create(episodate_id: 1000, name: Faker::FunnyName.name)
+Favorite.new(show_id: "#{show1}", user_id: "#{user1}", rating: 10 )
 
 
 # 10.times do
