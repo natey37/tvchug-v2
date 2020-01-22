@@ -39,11 +39,11 @@ def display_result(arr) #takes array, display and ask for selection, retruns Epi
     hash[hash_key]
 end
 
-def picked_show_prompt(show)
-    system("clear")
-    prompt = TTY::Prompt.new
-    prompt.select(show, ["Favorite show", "Find Out More Info", "Exit"])
-end
+# def picked_show_prompt(show)
+#     system("clear")
+#     prompt = TTY::Prompt.new
+#     prompt.select(show, ["Favorite show", "Find Out More Info", "Exit"])
+# end
 
 def show_details(id)
     # $current_show_id = id 
@@ -77,4 +77,11 @@ end
 def on_show_menu
 end
 
-
+def popular_shows 
+    shows = RestClient.get("https://www.episodate.com/api/most-popular?page=1")
+    shows = JSON.parse(shows)
+    result = make_list(shows)
+    show_id = display_result(result)
+    show_details(show_id)
+    user_action = ttyprompt("chose an option", ["add show to Favorite", "Go back to Popular shows"]
+end
