@@ -29,7 +29,7 @@ def show_details
         action = ttyprompt("Options",["Delete Favorite", "See Top Shows", "Search Shows", "Exit"])
         user_action(action)
     else
-        action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
+        action = ttyprompt("Options",["Favorite This Show", "See Top Shows", "Search Shows", "Exit"])
         user_action(action)
     end
 end

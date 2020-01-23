@@ -38,7 +38,7 @@ def sign_in
         input = prompt.select("Choose an option", ["Re-enter Username", "Create New Account"])
             if input == "Re-enter Username"
                sign_in
-            else 
+            elsif input == "Create New Account"
                new_account 
             end 
     end 
