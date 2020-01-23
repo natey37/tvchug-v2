@@ -6,43 +6,60 @@ end
 
 def user_action(action)
     case action
+<<<<<<< HEAD
     when "Exit", "Main Menu"
         system("clear")
+=======
+    when "exit", "Exit", "Main Menu"
+>>>>>>> dc74b50ff9f87300e6424841b4832d3470da6e6a
         return main_menu
-    when "search again"
-        system("clear")
-        return search
+
     when "Sign In"
-        system("clear")
         return sign_in
+
     when "New Account"
-        system("clear")
         return new_account
+<<<<<<< HEAD
     when"View as Guest"
         system("clear")
         return guest
     when "View My Fav Shows", 
         system("clear")
+=======
+
+    when "View as Guest"
+        $current_user = "Guest"
+        return main_menu  
+
+    when "View My Fav Shows"
+>>>>>>> dc74b50ff9f87300e6424841b4832d3470da6e6a
         return myfav
+
     when "See Top Shows"
-        system("clear")
         return popular_shows 
-    when "Search Shows"
-        system("clear")
+
+    when "Search Shows", "Search", "Search Again"
         return search
+
     when "Favorite this show"
-        system("clear")
         return favorite
+
     when "Find Out More Info"
-        system("clear")
-        return show_details(current_show_id)
+        return show_details
+
     when "Go back to Popular shows"
-        system("clear")
         return popular_shows
+<<<<<<< HEAD
     when "Sign Out"
         system("clear")
         return welcome
+=======
+
+    when "Sign out"
+        $current_user =nil
+        welcome
+>>>>>>> dc74b50ff9f87300e6424841b4832d3470da6e6a
     else
-        #nothign
+        #nothing
     end
 end

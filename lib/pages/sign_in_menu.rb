@@ -17,7 +17,7 @@ def sign_in
         pass_word = prompt.ask("Password: ")
         # binding.pry
         if valid_password?(pass_word)
-            $current_user = User.all.find_by(user_name: user_name)
+            $current_user = User.find_by(user_name: user_name)
             main_menu
         else 
             4.times do  
@@ -37,4 +37,5 @@ def sign_in
                new_account 
             end 
     end 
+
 end
