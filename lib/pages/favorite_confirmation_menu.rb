@@ -4,6 +4,8 @@ def favorite
     if $current_user == "Guest" #check for guest
         guest_error 
     end
+
+    system("artii 'Show Added' --font slant")
     
     if Show.find_by(episodate_id: $current_show_id) != nil #check to make shoe doesnt already exists in db
         show = Show.find_by(episodate_id: $current_show_id)
@@ -12,7 +14,7 @@ def favorite
     end
 
     Favorite.create(show_id: show.id, user_id: $current_user.id) #create favorite
-    puts "Your Show has Been added to your Favorite"
+    puts "Your Show has Been added to your Favorites"
     action = ttyprompt("What would you like to do next?",["View My Fav Shows", "Search Shows", "Main Menu"])
     user_action(action)  
 end

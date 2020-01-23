@@ -11,6 +11,7 @@ def myfav
     end
     arr << "Exit" 
 
+    system("artii 'Your Fav Shows' --font slant")
     action = ttyprompt("Here are your favorite shows. Click to see more details or exit", arr)
 
     user_action(action)

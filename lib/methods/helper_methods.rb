@@ -34,10 +34,16 @@ def user_action(action)
     when "Find Out More Info"
         return show_details
 
-    when "Sign Out"
-        $current_user =nil
+    when "Sign Out", "Return to Home Page"
+        $current_user = "Guest"
         welcome
+
+    when "Exit Program"
+        goodbye
+    when "About Us"
+        system("clear")
+         about_us
     else
-        #nothing
+        puts "Error! Bug Found"
     end
 end
