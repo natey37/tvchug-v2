@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_195648) do
+ActiveRecord::Schema.define(version: 2020_01_23_033643) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "show_id"
     t.integer "user_id"
     t.integer "rating"
+    t.datetime "created_at"
   end
 
   create_table "shows", force: :cascade do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_195648) do
     t.string "network"
     t.string "status"
     t.string "image_thumbnail_path"
+    t.datetime "created_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_195648) do
     t.string "last_name"
     t.string "password"
     t.string "user_name"
+    t.datetime "created_at"
   end
 
 end

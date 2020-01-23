@@ -1,26 +1,33 @@
 def search #prompts a search and searches until it finds atleast one show, returns JSON
     prompt = TTY::Prompt.new
-    search_keyword = prompt.ask("What would you like to Search?")
+    search_keyword = prompt.ask("Search by Name:")
 
-    result = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=1")
-    result = JSON.parse(result)
-    
-    while result["tv_shows"] == [] 
+    page1 = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=1")
+    result = JSON.parse(page1)["tv_shows"]
+
+    while result == [] 
         prompt = TTY::Prompt.new
         search_keyword = prompt.ask("No Results, Please Search again:")
         result = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=1")
-        result = JSON.parse(result)
+        result = JSON.parse(result)["tv_shows"]
     end
-    
-    result = make_list(result)
 
-end
+    if result.count == 20
+        page2 = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=2")
+        page2 = JSON.parse(page2)["tv_shows"]
+        result = result.concat(page2)
+    end
 
-def make_list(json_results) #takes JSON and lists items, add exit and search again, returns array
+    if result.count == 40
+        page3 = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=3")
+        page3 = JSON.parse(page3)["tv_shows"]
+        result = result.concat(page3)
+    end
+
     arr = []
     hash = {}
 
-    json_results["tv_shows"].each_with_index do |show,index|
+    result.each_with_index do |show,index|
         arr << "#{index+1}. #{show["name"]}"
         hash[index + 1] = show["id"]
 
