@@ -19,21 +19,20 @@ def sign_in
         # binding.pry
         if valid_password?(pass_word, user_name)
             $current_user = User.find_by(user_name: user_name)
+            system("clear")            
             main_menu
-        end 
-    
-        until valid_password?(pass_word, user_name)
+        else
             puts "Password Incorrect! Please re-enter your password."
             pass_word = prompt.mask("Password: ")
-            count += 1 
-            if count > 2
-                return welcome 
-            end 
-         
-            $current_user = User.find_by(user_name: user_name)
-            system("clear")
-            main_menu
-        end
+            if valid_password?(pass_word, user_name)
+                $current_user = User.find_by(user_name: user_name)
+                system("clear")
+                main_menu
+            else
+                welcome 
+            end
+        end 
+
     else 
         puts "User Cannot Be Found!"
         input = prompt.select("Choose an option", ["Re-enter Username", "Create New Account"])
