@@ -8,7 +8,7 @@ def community
 
     sorted.each_with_index do |show,index|
         arr << "#{index+1}. #{show["name"]}"
-        hash[index + 1] = show["id"]
+        hash[index + 1] = show[:episodate_id]
 
     end
     arr << "Search Again" 
@@ -21,7 +21,7 @@ def community
 
     hash_key = choice.split(".")[0].to_i
     $current_show_id =  hash[hash_key]
-
+    
     show_details
 
 end

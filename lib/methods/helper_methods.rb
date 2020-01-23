@@ -53,6 +53,10 @@ def user_action(action)
         system("clear")
          about_us
     else
+<<<<<<< HEAD
         # puts "Error! Bug Found"
+=======
+        #nothing
+>>>>>>> 35c430a4d877cb7f57e51572ba00e5b6f4b7c7d2
     end
 end
