@@ -12,14 +12,14 @@ def myfav
     arr << "Exit" 
 
     system("artii 'Your Fav Shows' --font slant")
-    action = ttyprompt("Here are your favorite shows. Click to see more details or exit", arr)
+    choice = ttyprompt("Here are your favorite shows. Click to see more details or exit", arr)
 
-    user_action(action)
-    $current_show_id =  hash[action]
-
-    show_details
-
-
+    if choice == "Exit"
+        user_action(choice)
+    else
+        $current_show_id =  hash[choice]
+        show_details
+    end
 
 
 end

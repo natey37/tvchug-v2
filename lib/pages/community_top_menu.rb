@@ -17,11 +17,12 @@ def community
     
     choice = ttyprompt("Results", arr)
 
-    user_action(choice)
-
-    hash_key = choice.split(".")[0].to_i
-    $current_show_id =  hash[hash_key]
-
-    show_details
+    if choice == "Exit" || choice == "Search Again" 
+        user_action(choice)
+    else
+        hash_key = choice.split(".")[0].to_i
+        $current_show_id =  hash[hash_key]
+        show_details
+    end
 
 end

@@ -4,5 +4,4 @@ def goodbye
     puts
     puts "COME BACK TO TV CHUG SOON"
     puts
-    return 
 end

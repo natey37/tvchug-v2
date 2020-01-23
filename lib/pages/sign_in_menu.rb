@@ -1,6 +1,5 @@
 def valid_user?(username)
     User.all.select{|user| user.user_name == username} != [] ? true : false 
-    # binding.pry
 end 
   
 def valid_password?(pass_word, username)
@@ -8,7 +7,6 @@ def valid_password?(pass_word, username)
 end 
   
 def sign_in 
-    count = 0 
   system("clear")
   prompt = TTY::Prompt.new
   system("artii 'Welcome to TVCHUG' --font slant")
@@ -16,7 +14,6 @@ def sign_in
 #   key(:password).mask('Password?')
     if valid_user?(user_name)
         pass_word = prompt.mask("Password: ")
-        # binding.pry
         if valid_password?(pass_word, user_name)
             $current_user = User.find_by(user_name: user_name)
             system("clear")            
