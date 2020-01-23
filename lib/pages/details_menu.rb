@@ -1,5 +1,5 @@
 def show_details
-    # $current_show_id = id 
+
     result = RestClient.get("https://www.episodate.com/api/show-details?q=#{$current_show_id}")
     result = JSON.parse(result)
     puts "Name: #{result["tvShow"]["name"]}"
@@ -21,9 +21,16 @@ def show_details
         permalink: "https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}",
         episodate_id: $current_show_id
     }
-
-    action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
-    user_action(action)
-
+    
+    if current_user == "Guest"
+        action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
+        user_action(action)  
+    elsif $current_user.has_show_episodate_id_in_fav($current_show_id)
+        action = ttyprompt("Options",["Delete Favorite", "See Top Shows", "Search Shows", "Exit"])
+        user_action(action)
+    else
+        action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
+        user_action(action)
+    end
 end
 
