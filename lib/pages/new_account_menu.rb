@@ -1,16 +1,30 @@
 def new_account
     prompt = TTY::Prompt.new
+    first_name = prompt.ask('First Name?') do |q|
+                    q.validate (/[^\s]/)
+                 end 
+    last_name = prompt.ask('Last Name?') do |q|
+                    q.validate (/[^\s]/)
+                end  
     
-    result = prompt.collect do
-        key(:first_name).ask('First Name?')
-        key(:last_name).ask('Last Name?')
-        key(:user_name).ask('User Name?')
-        key(:password).mask('Password?')
-    end
+    user = prompt.ask('User Name?') do |q|
+              q.validate (/[^\s]/) 
+           end
+                until !validate_user_name?(user)
+                    puts "That User Name has Been Taken! Please Choose Another!"
+                    user = prompt.ask('User Name?') do |q|
+                        q.validate (/[^\s]/) 
+                    end
+                end 
+    password = prompt.mask('Password?') do |q|
+                q.validate (/[^\s]/)
+                end 
+
+    result = {first_name: first_name, last_name: last_name, user_name: user, password: password}
     $current_user = User.create(result)
-    system("clear")
-    puts "Hello, #{$current_user.user_name}"
     main_menu
 end
 
-
+def validate_user_name?(user_name)
+    User.all.find_by(user_name: user_name)
+end 
