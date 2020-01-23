@@ -7,54 +7,54 @@ end
 def user_action(action)
     case action
     when "exit", "Exit", "Main Menu"
-        # system("clear")
+        system("clear")
         return main_menu
 
     when "Sign In"
-        # system("clear")
+        system("clear")
         return sign_in
 
     when "New Account"
-        # system("clear")
+        system("clear")
         return new_account
 
     when "View as Guest"
-        # system("clear")
+        system("clear")
         $current_user = "Guest"
         return main_menu  
 
     when "View My Fav Shows"
-        # system("clear")
+        system("clear")
         return myfav
 
     when "See Top Shows", "Go back to Popular shows"
-        # system("clear")
+        system("clear")
         return community 
 
     when "Search Shows", "Search", "Search Again"
-        # system("clear")
+        system("clear")
         return search
 
-    when "Favorite this show"
-        # system("clear")
+    when "Favorite This Show"
+        system("clear")
         return favorite
 
     when "Find Out More Info"
-        # system("clear")
+        system("clear")
         return show_details
 
     when "Sign Out", "Return to Home Page"
-        # system("clear")
+        system("clear")
         $current_user = "Guest"
         return welcome
 
     when "Exit Program"
         return goodbye
     when "About Us"
-        # system("clear")
+        system("clear")
          return about_us
     when "Delete Favorite"
-        # system("clear")
+        system("clear")
         return delete_favorite
     else 
         #nothing

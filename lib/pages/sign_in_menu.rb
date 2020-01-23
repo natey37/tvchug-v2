@@ -11,7 +11,7 @@ def sign_in
     count = 0 
   system("clear")
   prompt = TTY::Prompt.new
-  puts "Welcome to TVCHUG"
+  system("artii 'Welcome to TVCHUG' --font slant")
   user_name = prompt.ask("Username: ")
 #   key(:password).mask('Password?')
     if valid_user?(user_name)

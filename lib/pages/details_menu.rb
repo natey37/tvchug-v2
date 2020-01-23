@@ -23,7 +23,7 @@ def show_details
     }
 
     if $current_user == "Guest"
-        action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
+        action = ttyprompt("Options",["Favorite This Show", "See Top Shows", "Search Shows", "Exit"])
         user_action(action)  
     elsif $current_user.has_show_episodate_id_in_fav($current_show_id)
         action = ttyprompt("Options",["Delete Favorite", "See Top Shows", "Search Shows", "Exit"])
