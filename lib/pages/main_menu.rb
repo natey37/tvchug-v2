@@ -3,7 +3,7 @@ def main_menu
     if $current_user == "Guest" #guest options
         puts "Hello, Guest"
         puts 
-        action = ttyprompt("Main Menu",["See Top Shows", "Search Shows","", "Sign In", "New Account"])
+        action = ttyprompt("Main Menu",["See Top Shows", "Search Shows", "Sign In", "New Account"])
         user_action(action)
 
     else #regular user options 
