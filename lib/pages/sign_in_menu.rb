@@ -7,7 +7,8 @@ def valid_password?(pass_word, username)
     User.all.select{|user| user.password == pass_word && user.user_name == username} != [] ? true : false 
 end 
   
-def sign_in
+def sign_in 
+    count = 0 
   system("clear")
   prompt = TTY::Prompt.new
   puts "Welcome to TVCHUG"
@@ -20,12 +21,17 @@ def sign_in
             $current_user = User.find_by(user_name: user_name)
             main_menu
         end 
-        
+    
         until valid_password?(pass_word, user_name)
             puts "Password Incorrect! Please re-enter your password."
             pass_word = prompt.ask("Password: ")
+            count += 1 
+            if count > 2
+                return welcome 
+            end 
         end 
         $current_user = User.find_by(user_name: user_name)
+        system("clear")
         main_menu
     else 
         puts "User Cannot Be Found!"

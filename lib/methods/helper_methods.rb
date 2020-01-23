@@ -37,7 +37,7 @@ def user_action(action)
     when "Go back to Popular shows"
         return popular_shows
 
-    when "Sign out"
+    when "Sign Out"
         $current_user =nil
         welcome
     else
