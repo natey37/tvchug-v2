@@ -32,9 +32,10 @@ def search #prompts a search and searches until it finds atleast one show, retur
         hash[index + 1] = show["id"]
 
     end
-    arr << "Search again" 
+    arr << "Search Again" 
     arr << "Exit"
 
+    
     choice = ttyprompt("Results", arr)
 
     user_action(choice)

@@ -6,29 +6,41 @@ end
 
 def user_action(action)
     case action
-    when "exit" 
+    when "exit", "Exit", "Main Menu"
         return main_menu
-    when "search again"
-        return search
+
     when "Sign In"
-        sign_in
+        return sign_in
+
     when "New Account"
         return new_account
-    when"View as Guest"
-        #need stuff here 
+
+    when "View as Guest"
+        $current_user = "Guest"
+        return main_menu  
+
     when "View My Fav Shows"
         return myfav
+
     when "See Top Shows"
         return popular_shows 
-    when "Search Shows"
+
+    when "Search Shows", "Search", "Search Again"
         return search
+
     when "Favorite this show"
-        favorite
+        return favorite
+
     when "Find Out More Info"
-        return show_details(current_show_id)
+        return show_details
+
     when "Go back to Popular shows"
         return popular_shows
+
+    when "Sign out"
+        $current_user =nil
+        welcome
     else
-        #nothign
+        #nothing
     end
 end
