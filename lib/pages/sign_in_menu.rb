@@ -3,8 +3,8 @@ def valid_user?(username)
     # binding.pry
 end 
   
-def valid_password?(pass_word)
-    User.all.select{|user| user.password == pass_word} != [] ? true : false 
+def valid_password?(pass_word, username)
+    User.all.select{|user| user.password == pass_word && user.user_name == username} != [] ? true : false 
 end 
   
 def sign_in
@@ -16,18 +16,17 @@ def sign_in
     if valid_user?(user_name)
         pass_word = prompt.ask("Password: ")
         # binding.pry
-        if valid_password?(pass_word)
+        if valid_password?(pass_word, user_name)
             $current_user = User.find_by(user_name: user_name)
             main_menu
-        else 
-            4.times do  
-                valid_password?(pass_word)
-                puts "Password Incorrect! Please re-enter your password."
-                pass_word = prompt.ask("Password: ")
-            end 
-            sign_in
         end 
         
+        until valid_password?(pass_word, user_name)
+            puts "Password Incorrect! Please re-enter your password."
+            pass_word = prompt.ask("Password: ")
+        end 
+        $current_user = User.find_by(user_name: user_name)
+        main_menu
     else 
         puts "User Cannot Be Found!"
         input = prompt.select("Choose an option", %w(Re-enter_Username Create_New_Account))

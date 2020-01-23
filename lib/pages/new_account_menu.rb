@@ -8,11 +8,8 @@ def new_account
         key(:password).mask('Password?')
     end
     $current_user = User.create(result)
-<<<<<<< HEAD
     system("clear")
     puts "Hello, #{$current_user.user_name}"
-=======
->>>>>>> dc74b50ff9f87300e6424841b4832d3470da6e6a
     main_menu
 end
 
