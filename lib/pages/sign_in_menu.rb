@@ -29,10 +29,11 @@ def sign_in
             if count > 2
                 return welcome 
             end 
-        end 
-        $current_user = User.find_by(user_name: user_name)
-        system("clear")
-        main_menu
+         
+            $current_user = User.find_by(user_name: user_name)
+            system("clear")
+            main_menu
+        end
     else 
         puts "User Cannot Be Found!"
         input = prompt.select("Choose an option", ["Re-enter Username", "Create New Account"])

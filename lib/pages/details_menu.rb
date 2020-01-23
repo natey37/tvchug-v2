@@ -21,8 +21,8 @@ def show_details
         permalink: "https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}",
         episodate_id: $current_show_id
     }
-    
-    if current_user == "Guest"
+
+    if $current_user == "Guest"
         action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
         user_action(action)  
     elsif $current_user.has_show_episodate_id_in_fav($current_show_id)
