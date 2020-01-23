@@ -1,5 +1,9 @@
 def myfav
+
+    $current_user = User.all.find_by(user_name: $current_user.user_name)
+
     database = $current_user.shows
+    
     
     arr = []
     hash = {}
