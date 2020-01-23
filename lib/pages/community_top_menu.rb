@@ -1,6 +1,6 @@
 def community 
     all_shows = Show.all
-    sorted = all_shows.sort_by{|show| show.num_of_favs}
+    sorted = all_shows.sort_by{|show| show.num_of_favs}.reverse
     sorted = sorted[0..29]
 
     arr = []

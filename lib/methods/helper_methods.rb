@@ -22,8 +22,8 @@ def user_action(action)
     when "View My Fav Shows"
         return myfav
 
-    when "See Top Shows"
-        return popular_shows 
+    when "See Top Shows", "Go back to Popular shows"
+        return community 
 
     when "Search Shows", "Search", "Search Again"
         return search
@@ -34,10 +34,7 @@ def user_action(action)
     when "Find Out More Info"
         return show_details
 
-    when "Go back to Popular shows"
-        return popular_shows
-
-    when "Sign out"
+    when "Sign Out"
         $current_user =nil
         welcome
     else
