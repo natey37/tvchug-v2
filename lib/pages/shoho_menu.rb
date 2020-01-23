@@ -1,6 +1,7 @@
 def sho_ho
     random_number = rand(68366)
-    result = RestClient.get("https://www.episodate.com/api/show-details?q=#{random_number}")
+    $current_show_id = random_number
+    result = RestClient.get("https://www.episodate.com/api/show-details?q=#{$current_show_id}")
     result = JSON.parse(result)
     puts "Name: #{result["tvShow"]["name"]}"
     puts "Description: #{result["tvShow"]["description"]}"
@@ -19,11 +20,11 @@ def sho_ho
         network: "#{result["tvShow"]["network"]}",
         status: "#{result["tvShow"]["status"]}",
         permalink: "https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}",
-        episodate_id: "#{random_number}"
+        episodate_id: "#{$current_show_id}"
     }
 
     if $current_user == "Guest"
-        action = ttyprompt("Options",["Favorite This Show", "See Top Shows", "Search Shows", "Exit"])
+        action = ttyprompt("Options",["Sho'ho", "See Top Shows", "Search Shows", "Exit"])
         user_action(action)  
     elsif $current_user.has_show_episodate_id_in_fav($current_show_id)
         action = ttyprompt("Options",["Delete Favorite", "Sho'ho", "Search Shows", "Exit"])
