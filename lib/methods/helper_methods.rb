@@ -44,6 +44,7 @@ def user_action(action)
         return show_details
 
     when "Sign Out", "Return to Home Page"
+        system("clear")
         $current_user = "Guest"
         welcome
 
@@ -52,7 +53,10 @@ def user_action(action)
     when "About Us"
         system("clear")
          about_us
-    else
+    when "Delete Favorite"
+        system("clear")
+        delete_favorite
+    else 
         #nothing
     end
 end
