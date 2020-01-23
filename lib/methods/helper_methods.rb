@@ -56,6 +56,9 @@ def user_action(action)
     when "Delete Favorite"
         system("clear")
         return delete_favorite
+    when "Sho'ho"
+        system("clear")
+        return sho_ho
     else 
         #nothing
     end
