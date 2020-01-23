@@ -27,6 +27,7 @@ def sign_in
             end 
             sign_in
         end 
+        
     else 
         puts "User Cannot Be Found!"
         input = prompt.select("Choose an option", %w(Re-enter_Username Create_New_Account))

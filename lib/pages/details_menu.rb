@@ -22,7 +22,7 @@ def show_details
         episodate_id: $current_show_id
     }
 
-    action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "exit"])
+    action = ttyprompt("Options",["Favorite this show", "See Top Shows", "Search Shows", "Exit"])
     user_action(action)
 
 end

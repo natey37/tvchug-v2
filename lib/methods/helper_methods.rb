@@ -6,7 +6,7 @@ end
 
 def user_action(action)
     case action
-    when "exit", "Main Menu"
+    when "Exit", "Main Menu"
         system("clear")
         return main_menu
     when "search again"
@@ -19,7 +19,8 @@ def user_action(action)
         system("clear")
         return new_account
     when"View as Guest"
-        #need stuff here 
+        system("clear")
+        return guest
     when "View My Fav Shows", 
         system("clear")
         return myfav
@@ -38,6 +39,9 @@ def user_action(action)
     when "Go back to Popular shows"
         system("clear")
         return popular_shows
+    when "Sign Out"
+        system("clear")
+        return welcome
     else
         #nothign
     end

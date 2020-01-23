@@ -11,7 +11,7 @@ def myfav
         arr << show.name
         hash[show.name] = show.episodate_id
     end
-    arr << "exit" 
+    arr << "Exit" 
 
     action = ttyprompt("Here are your favorite shows. Click to see more details or exit", arr)
 
