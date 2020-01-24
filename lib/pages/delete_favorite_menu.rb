@@ -5,7 +5,7 @@ def delete_favorite
 
 
 
-    system("artii 'Favorite Deleted' --font slant")
+    system("artii 'FAVORITE DELETED' --font slant")
 
     puts "Your Show has been Removed from your Favorites"
     action = ttyprompt("What would you like to do next?",["View My Fav Shows", "Search Shows", "Main Menu"])

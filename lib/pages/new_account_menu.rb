@@ -1,5 +1,8 @@
 def new_account
     prompt = TTY::Prompt.new
+    system("artii 'Make a New Account!' --font slant")
+    puts 
+    puts 
     first_name = prompt.ask('First Name?') do |q|
                     q.validate (/[^\s]/)
                  end 

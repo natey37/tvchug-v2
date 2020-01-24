@@ -5,7 +5,7 @@ def favorite
         guest_error 
     end
 
-    system("artii 'Show Added' --font slant")
+    system("artii 'SHOW ADDED' --font slant")
     
     if Show.find_by(episodate_id: $current_show_id) != nil #check to make shoe doesnt already exists in db
         show = Show.find_by(episodate_id: $current_show_id)

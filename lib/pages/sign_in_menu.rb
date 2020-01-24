@@ -9,7 +9,7 @@ end
 def sign_in 
   system("clear")
   prompt = TTY::Prompt.new
-  system("artii 'Welcome to TVCHUG' --font slant")
+  system("artii 'Welcome to TV CHUG' --font slant")
   user_name = prompt.ask("Username: ")
 #   key(:password).mask('Password?')
     if valid_user?(user_name)

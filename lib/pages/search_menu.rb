@@ -1,5 +1,7 @@
 def search #prompts a search and searches until it finds atleast one show, returns JSON
     prompt = TTY::Prompt.new
+    system("artii 'SEARCH...' --font slant")
+
     search_keyword = prompt.ask("Search by Name:")
 
     page1 = RestClient.get("https://www.episodate.com/api/search?q=#{search_keyword}&page=1")
@@ -35,7 +37,7 @@ def search #prompts a search and searches until it finds atleast one show, retur
     arr << "Search Again" 
     arr << "Exit"
 
-    
+    system("clear")
     choice = ttyprompt("Results", arr)
 
     if choice == "Exit" || choice == "Search Again" 
