@@ -7,15 +7,15 @@ def sho_ho
         if result == []
             sho_ho
         end 
-    puts "Name: #{result["tvShow"]["name"]}"
-    puts "Description: #{result["tvShow"]["description"]}"
-    puts "Start Date: #{result["tvShow"]["start_date"]}"
-    puts "End Date: #{result["tvShow"]["end_date"]}"
-    puts "Network: #{result["tvShow"]["network"]}"
-    puts "Status: #{result["tvShow"]["status"]}"
-    puts "Trailer: https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}"
-    puts "Genres: #{result["tvShow"]["genres"]}"
-    puts "# of Episodes: #{result["tvShow"]["episodes"].count}"
+    puts "Name: ".blue + "#{result["tvShow"]["name"]}"
+    puts "Description: ".blue + "#{result["tvShow"]["description"]}"
+    puts "Start Date: ".blue + "#{result["tvShow"]["start_date"]}"
+    puts "End Date: ".blue + "#{result["tvShow"]["end_date"]}"
+    puts "Network: ".blue + "#{result["tvShow"]["network"]}"
+    puts "Status: ".blue + "#{result["tvShow"]["status"]}"
+    puts "Trailer: ".blue + "https://www.youtube.com/watch?v=#{result["tvShow"]["youtube_link"]}"
+    puts "Genres: ".blue + "#{result["tvShow"]["genres"]}"
+    puts "# of Episodes: ".blue + "#{result["tvShow"]["episodes"].count}"
 
     $current_show_hash = {
         name: "#{result["tvShow"]["name"]}", 
