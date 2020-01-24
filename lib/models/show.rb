@@ -12,9 +12,10 @@ class Show < ActiveRecord::Base
         # binding.pry
         arr_of_favs = self.favorites 
         favs = arr_of_favs.select{|fav| fav.rating != nil}
-        if favs == []
+        favorites = favs.map{|fav| fav.rating}
+        if favorites == []
             "no ratings"
-        else favs.inject(:+) / favs.count.to_f
+        else favorites.inject(:+) / favorites.count.to_f
         end
     end 
 
