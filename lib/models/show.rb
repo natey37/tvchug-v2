@@ -14,7 +14,7 @@ class Show < ActiveRecord::Base
         favs = arr_of_favs.select{|fav| fav.rating != nil}
         favorites = favs.map{|fav| fav.rating}
         if favorites == []
-            "no ratings"
+            "n/a"
         else favorites.inject(:+) / favorites.count.to_f
         end
     end 

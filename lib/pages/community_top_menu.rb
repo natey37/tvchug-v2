@@ -9,10 +9,11 @@ def community
     hash = {}
 
     sorted.each_with_index do |show,index|
-        arr << "#{index+1}. #{show[:name]}  favs:#{show.num_of_favs}  rating: #{show.avg_rating} "
+        arr << "#{index+1}. #{show[:name]}  favs: #{show.num_of_favs} rating: #{show.avg_rating}"
         hash[index + 1] = show[:episodate_id]
 
     end
+    
     arr << "Search Again" 
     arr << "Exit"
 
