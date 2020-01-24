@@ -14,7 +14,7 @@ def myfav
     print_ascii('Your Fav Shows')
 
     prompt = TTY::Prompt.new
-    choice = prompt("Here are your favorite shows. Click to see more details or exit", arr)
+    choice = prompt.select("Here are your favorite shows. Click to see more details or exit", arr)
 
     if choice == "Exit"
         user_action(choice)

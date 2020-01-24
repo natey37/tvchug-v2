@@ -16,8 +16,8 @@ def community
     arr << "Search Again" 
     arr << "Exit"
 
-    
-    ttyprompt("Results", arr)
+    prompt = TTY::Prompt.new
+    choice = prompt.select("Results", arr)
 
     if choice == "Exit" || choice == "Search Again" 
         user_action(choice)

@@ -7,7 +7,7 @@ def main_menu
 
     else #regular user options 
         system("artii 'Hello, #{$current_user.user_name} !!!' --font slant")
-        ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows","Sho'ho", "Sign Out"])
+        ttyprompt("Main Menu",["View My Fav Shows", "See Top Shows", "Search Shows","Sho'ho", "View Users", "Sign Out"])
     end
 
 end

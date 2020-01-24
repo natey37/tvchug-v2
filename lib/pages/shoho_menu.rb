@@ -1,10 +1,12 @@
 def sho_ho
     system("artii 'FEELING LUCKY?' --font slant")
-  
     random_number = rand(68366)
     $current_show_id = random_number
     result = RestClient.get("https://www.episodate.com/api/show-details?q=#{$current_show_id}")
     result = JSON.parse(result)
+        if result == []
+            sho_ho
+        end 
     puts "Name: #{result["tvShow"]["name"]}"
     puts "Description: #{result["tvShow"]["description"]}"
     puts "Start Date: #{result["tvShow"]["start_date"]}"
