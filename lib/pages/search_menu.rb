@@ -35,8 +35,8 @@ def search #prompts a search and searches until it finds atleast one show, retur
     arr << "Search Again" 
     arr << "Exit"
 
-    
-    choice = ttyprompt("Results", arr)
+    prompt = TTY::Prompt.new
+    choice = prompt("Results", arr)
 
     if choice == "Exit" || choice == "Search Again" 
         user_action(choice)

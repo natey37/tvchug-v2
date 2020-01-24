@@ -15,7 +15,7 @@ def community
     arr << "Exit"
 
     
-    choice = ttyprompt("Results", arr)
+    ttyprompt("Results", arr)
 
     if choice == "Exit" || choice == "Search Again" 
         user_action(choice)

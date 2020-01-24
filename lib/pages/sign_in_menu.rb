@@ -9,21 +9,20 @@ end
 def sign_in 
   system("clear")
   prompt = TTY::Prompt.new
-  system("artii 'Welcome to TVCHUG' --font slant")
+  print_ascii('Welcome to TVCHUG')
+
   user_name = prompt.ask("Username: ")
 #   key(:password).mask('Password?')
     if valid_user?(user_name)
         pass_word = prompt.mask("Password: ")
         if valid_password?(pass_word, user_name)
-            $current_user = User.find_by(user_name: user_name)
-            system("clear")            
+            $current_user = User.find_by(user_name: user_name)          
             main_menu
         else
             puts "Password Incorrect! Please re-enter your password."
             pass_word = prompt.mask("Password: ")
             if valid_password?(pass_word, user_name)
                 $current_user = User.find_by(user_name: user_name)
-                system("clear")
                 main_menu
             else
                 welcome 

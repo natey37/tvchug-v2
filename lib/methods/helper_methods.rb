@@ -1,7 +1,12 @@
 
 def ttyprompt(text,arr)
     prompt = TTY::Prompt.new
-    prompt.select(text, arr)
+    action = prompt.select(text, arr)
+    user_action(action)
+end
+
+def print_ascii(string)
+    system("artii \"#{string}\" --font slant")
 end
 
 def user_action(action)
