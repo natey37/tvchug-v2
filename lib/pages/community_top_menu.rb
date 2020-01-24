@@ -1,4 +1,6 @@
 def community 
+    system("artii 'TOP SHOWS!' --font slant")
+
     all_shows = Show.all
     sorted = all_shows.sort_by{|show| show.num_of_favs}.reverse
     sorted = sorted[0..29]

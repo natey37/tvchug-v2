@@ -2,7 +2,6 @@ def main_menu
     system("clear")
     if $current_user == "Guest" #guest options
         system("artii 'Hello, Guest!' --font slant")
-        # puts "Hello, Guest"
         puts 
         ttyprompt("Main Menu",["See Top Shows", "Search Shows", "Sign In", "New Account","Return to Home Page"])
 
