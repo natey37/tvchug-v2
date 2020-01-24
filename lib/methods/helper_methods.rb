@@ -67,6 +67,9 @@ def user_action(action)
     when "View Users", "Back"
         system("clear")
         return view_users
+    when "Rate Show"
+        # system("clear")
+        return rate_this_show
     else 
         #nothing
     end

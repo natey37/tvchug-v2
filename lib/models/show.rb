@@ -8,4 +8,14 @@ class Show < ActiveRecord::Base
         self.favorites.count
     end
 
+    def avg_rating
+        # binding.pry
+        arr_of_favs = self.favorites 
+        favs = arr_of_favs.select{|fav| fav.rating != nil}
+        if favs == []
+            "no ratings"
+        else favs.inject(:+) / favs.count.to_f
+        end
+    end 
+
 end
