@@ -4,8 +4,9 @@ def welcome
     puts
     puts
 
-    system("artii 'TV Chug' --font slant")
+
+    print_ascii('TV Chug')
     puts
-    user_input = ttyprompt( 'WELCOME TO TV CHUG', ["Sign In", "New Account", "View as Guest", "About Us", "Exit Program"])
-    user_action(user_input)
+    ttyprompt( 'WELCOME TO TV CHUG', ["Sign In", "New Account", "View as Guest", "About Us", "Exit Program"])
+
 end

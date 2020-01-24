@@ -26,13 +26,12 @@ def sho_ho
     }
 
     if $current_user == "Guest"
-        action = ttyprompt("Options",["Sho'ho", "See Top Shows", "Search Shows", "Exit"])
-        user_action(action)  
+        ttyprompt("Options",["Sho'ho", "See Top Shows", "Search Shows", "Exit"])
+
     elsif $current_user.has_show_episodate_id_in_fav($current_show_id)
-        action = ttyprompt("Options",["Delete Favorite", "Sho'ho", "Search Shows", "Exit"])
-        user_action(action)
+        ttyprompt("Options",["Delete Favorite", "Sho'ho", "Search Shows", "Exit"])
+
     else
-        action = ttyprompt("Options",["Favorite This Show", "Sho'ho", "Search Shows", "Exit"])
-        user_action(action)
+        ttyprompt("Options",["Favorite This Show", "Sho'ho", "Search Shows", "Exit"])
     end
 end 

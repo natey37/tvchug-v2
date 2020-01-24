@@ -10,10 +10,11 @@ def myfav
         hash[show.name] = show.episodate_id
     end
     arr << "Exit" 
-    
-    
-    system("artii 'Your Fav Shows' --font slant")
-    choice = ttyprompt("Here are your favorite shows. Click to see more details or exit", arr)
+
+    print_ascii('Your Fav Shows')
+
+    prompt = TTY::Prompt.new
+    choice = prompt("Here are your favorite shows. Click to see more details or exit", arr)
 
     if choice == "Exit"
         user_action(choice)
