@@ -64,6 +64,9 @@ def user_action(action)
     when "Sho'ho"
         system("clear")
         return sho_ho
+    when "View Users", "Back"
+        system("clear")
+        return view_users
     else 
         #nothing
     end
